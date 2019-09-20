@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue Hello Example</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>Hello,{{ msg }}</div>
+
+      <div>
+        <label>请输入信息：</label>
+        <input v-model="info" />
+        <button @click="handleAdd">Add</button>
+      </div>
+
+      <ul>
+        <li v-for="item in list">{{ item }}</li>
+      </ul>
+    </div>
+
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: 'Lyric',
+            info: '',
+            list: [],
+          };
+        },
+        methods: {
+          handleAdd() {
+            if (this.info === '') {
+              alert('请输入信息');
+              return;
+            }
+            this.list.push(this.info);
+            this.info = '';
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
