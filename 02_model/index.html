@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 :style="text">{{ msg }}</h1>
+      <input v-model="msg" placeholder="请输入信息" />
+      <button @click="changeColor()">切换颜色</button>
+    </div>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: 'Hello,world.',
+            color: 'red',
+          };
+        },
+        computed: {
+          text: function() {
+            return { color: this.color };
+          },
+        },
+        methods: {
+          changeColor: function() {
+            this.color = this.color === 'red' ? 'blue' : 'red';
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
