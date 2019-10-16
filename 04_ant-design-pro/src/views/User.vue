@@ -8,8 +8,8 @@
       :loading="loading"
       :pagination="false"
     >
-      <template slot="gender" slot-scope="gender">
-        <span style="color:red;">{{gender===1?"男":"女"}}</span>
+      <template slot="gender" slot-scope="text">
+        <span style="color:red;">{{ text === 1 ? "男" : "女" }}</span>
       </template>
     </a-table>
   </div>
