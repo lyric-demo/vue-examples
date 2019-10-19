@@ -9,7 +9,7 @@
       :pagination="false"
     >
       <template slot="gender" slot-scope="text">
-        <span style="color:red;">{{ text === 1 ? "男" : "女" }}</span>
+        <span style="color:red;">{{ text | formatGender }}</span>
       </template>
     </a-table>
   </div>
@@ -58,6 +58,16 @@ export default {
   },
   methods: {
     ...mapActions(["fetch"])
+  },
+  filters: {
+    formatGender(value) {
+      if (!value) {
+        return "未知";
+      } else if (value === 1) {
+        return "男";
+      }
+      return "女";
+    }
   }
 };
 </script>
